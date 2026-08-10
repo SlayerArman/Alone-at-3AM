@@ -121,3 +121,102 @@ h1{
     background-image: url("../assets/images/textures/noise.png");
     background-repeat: repeat;
 }
+
+.scenario-selection{
+    width:  min(90%, 700px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selection-header{
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.selection-header h2{
+    color: var(--light-gray);
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+}
+
+.scenario-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #1d1d1d;
+}
+
+.scenario-item{
+    display: grid;
+    grid-template-columns: 55px 1fr 100px;
+    align-items: center;
+    width: 100%;
+    min-height: 58px;
+    padding: 0 16px;
+    border: none;
+    border-bottom: 1px solid #171717;
+    background: trasparent;
+    color: #777;
+    font-family: var(--font-mono);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.scenario-item:hover:not(:disabled),
+.scenario-item:focus-visible:not(:disabled){
+    background: rgb(255, 255, 255, 0.025);
+    color: var(--white);
+}
+
+.scenario-number{
+    color: #444;
+    font-size: 11px;
+    letter-spacing: 0.1rem;
+}
+
+.scenario-title{
+    font-size: 12px;
+    letter-spacing: 0.16em;
+}
+
+.scenario-status{
+    color: #444;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.scenario-item:not(.locked) .scenario-status{
+    color: #777;
+}
+
+.scenario-item.locked{
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+.back-button{
+    margin-top: 32x;
+    padding: 10px 22px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #555;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition:
+        color 180ms ease,
+        border-color 180ms ease;
+}
+
+.back-button:hover, .back-button:focus-visible{
+    border-color: #222;
+    color: var(--white);
+}

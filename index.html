@@ -11,10 +11,35 @@
         <div class="noise"></div>
 
         <main id="app">
-            <section class="screen">
-                <p class="eyebrow">SYSTEM INITIALIZED</p>
-                <h1>Alone at 3AM</h1>
-                <p class="status">INITIALIZING...</p>
+            <section class="menu">
+                <div class="menu-header">
+                    <p class="eyebrow">UNKNOWN SYSTEM</p>
+                    <h1>Alone at 3AM</h1>
+                    <p class="status">Something is wrong.</p>
+                </div>
+
+                <nav class="menu-options" aria-label="Main menu">
+                    <button type="button" data-action="begin">
+                        BEGIN
+                    </button>
+
+                    <button type="button" data-action="archive">
+                        ARCHIVE
+                    </button>
+
+                    <button type="button" data-action="settings">
+                        SETTINGS
+                    </button>
+
+                    <button
+                        type="button"
+                        class="help-button"
+                        data-action="help"
+                        aria-label="Help">
+                        ?
+                    </button>
+                </nav>
+                
             </section>
         </main>
 

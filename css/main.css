@@ -1,3 +1,13 @@
+:root{
+    --black: #050505;
+    --dark-gray: #0d0d0d;
+    --gray: #777;
+    --light-gray: #cfcfcf;
+    --white: #eeeeee;
+
+    --font-mono: "Courier New", Courier, monospace;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -10,14 +20,58 @@ html, body{
 }
 
 body{
-    background: #000;
-    color: #eee;
-    font-family: monospace;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-mono);
 }
 
 #app{
+    position: relative;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background:
+        radial-gradient(circle at center, #111 0%, var(--black) 65%);
+}
+
+.screen{
+    width: min(90%, 90px);
+    text-align: center;
+}
+
+.eyebrow{
+    margin-bottom: 24px;
+    color: var(--gray);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+}
+
+h1{
+    color: var(--light-gray);
+    font-size: clamp(36px, 7vw, 82px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.status{
+    margin-top: 28px;
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+.noise{
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("../assets/images/textures/noise.png");
+    background-repeat: repeat;
 }

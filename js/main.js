@@ -97,8 +97,54 @@ function setupScenarioButtons() {
         button.addEventListener("click", () => {
             const scenarioId = button.dataset.scenario;
 
-            console.log(`Scenario selected: ${scenarioId}`);
+            showScenarioIntro(scenarioId);
         });
+    });
+}
+
+function showScenarioIntro(scenarioId){
+    const scenario = scenarios.find(
+        (item) => item.id === scenarioId
+    );
+    
+    if (!scenario) {
+        console.warn(`Scenario not found: ${scenarioId}`);
+        return;
+    }
+    
+    app.innerHTML = `
+        <section class="scenario-intro">
+
+            <p class="eyebrow">
+                INCIDENT ${scenario.number}
+            </p>
+            
+            <h2>${scenario.title}</h2>
+            
+            <div class="intro-divider"></div>
+            
+            <div class="intro-description">
+                <p>You wake up in a hotel room.</p>
+                
+                <p>The clock says 3:17 AM.</p>
+                
+                <p>You don't remember checking in.</p>
+            </div>
+            
+            <button
+                class="continue-button"
+                type="button"
+                data-action="continue">
+                CONTINUE
+            </button>
+        </section>
+    `;
+
+    const continueButton =
+        document.querySelector("[data-action='continue']");
+    
+        continueButton.addEventListener("click", () => {
+            console.log("Continue to rules");
     });
 }
 

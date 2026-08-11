@@ -220,3 +220,59 @@ h1{
     border-color: #222;
     color: var(--white);
 }
+
+.scenario-intro{
+    width: min(90%, 680px);
+    text-align: center;
+}
+
+.scenario-intro h2{
+    margin-top: 10px;
+    color: var(--light-gray);
+    font-size: clamp(36px, 7vw, 68px);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+}
+
+.intro-divider{
+    width: 60px;
+    height: 1px;
+    margin: 38px auto;
+    background: #333;
+}
+
+.intro-description{
+    max-width: 480px;
+    margin: 0 auto;
+    color: #999;
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+}
+
+.intro-description p{
+    margin-bottom: 8px;
+}
+
+.continue button{
+    margin-top: 52px;
+    padding: 12px 28px;
+    border: 1px solid #292929;
+    background: transparent;
+    color: #777;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition:
+        color 180ms ease,
+        border-color 180ms ease,
+        background-color 180ms ease;
+}
+
+.continue-button:hover, .continue-button:focus-visible{
+    border-color: #555;
+
+    background: rgb(255, 255, 255, 0.025);
+    color: var(--white);
+}

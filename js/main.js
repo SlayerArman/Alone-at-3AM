@@ -144,7 +144,73 @@ function showScenarioIntro(scenarioId){
         document.querySelector("[data-action='continue']");
     
         continueButton.addEventListener("click", () => {
-            console.log("Continue to rules");
+            showScenarioRules(scenarioId);
+    });
+}
+
+function showScenarioRules(scenarioId){
+    const scenario = scenarios.find(
+        (item) => item.id === scenarioId
+    );
+
+    if (!scenario) {
+        console.warn(`Scenario not found: ${scenarioId}`);
+        return;
+    }
+
+    const rules = [
+        "Do not open the door.",
+        "If the phone rings twice, answer it.",
+        "Never looks through peephole.",
+        "If you hear breathing behind you, don't turn around."
+    ];
+
+    const rulesList = rules
+        .map((rule, index) => {
+            const ruleNumber = String(index + 1).padStart(2, "0");
+            return`
+                <article class="rule">
+                    <span class="rule-number">
+                        RULE ${ruleNumber}
+                    </span>
+                    
+                    <p>${rule}</p>
+                </article>
+            `;
+        })
+        .join("");
+
+        app.innerHTML = `
+            <section class="scenario-rules">
+                <div class="rules-header">
+                    <p class="eyebrow">
+                        INCIDENT ${scenario.number}
+                    </p>
+                    
+                    <h2>ROOM 608</h2>
+
+                    <p class="rules-intro">
+                        Read carefully.
+                    </p>
+                </div>
+                
+                <div class="rules-list">
+                    ${rulesList}
+                </div>
+                
+                <button
+                    class="begin-scenario-button"
+                    type="button">
+                    BEGIN
+                </button>
+            </section>
+        `;
+
+        const beginButton =
+            document.querySelector(".begin-scenario-button");
+
+        beginButton.addEventListener("click", () => {
+            HTMLFormControlsCollection.log("Starting ROOM 608");
     });
 }
 

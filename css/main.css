@@ -157,7 +157,7 @@ h1{
     padding: 0 16px;
     border: none;
     border-bottom: 1px solid #171717;
-    background: trasparent;
+    background: transparent;
     color: #777;
     font-family: var(--font-mono);
     text-align: left;
@@ -202,7 +202,7 @@ h1{
 }
 
 .back-button{
-    margin-top: 32x;
+    margin-top: 32px;
     padding: 10px 22px;
     border: 1px solid transparent;
     background: transparent;
@@ -254,7 +254,7 @@ h1{
     margin-bottom: 8px;
 }
 
-.continue button{
+.continue-button{
     margin-top: 52px;
     padding: 12px 28px;
     border: 1px solid #292929;
@@ -315,7 +315,7 @@ h1{
     text-align: left;
 }
 
-.rule-bumber{
+.rule-number{
     color: #555;
     font-size: 10px;
     letter-spacing: 0.16em;
@@ -349,4 +349,117 @@ h1{
     border-color: #555;
     background: rgba(255, 255, 255, 0.025);
     color: var(--white);
+}
+
+.game-screen{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.room{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/room-608/room-608-background.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.room::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0, 0, 0, 0.35) 75%,
+            rgba(0, 0, 0, 0.72) 100%
+        );
+}
+
+.room-hud{
+    position: absolute;
+    top: 28px;
+    left: 32px;
+    right: 32px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.scenario-label{
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+}
+
+.timer{
+    min-width: 48px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-mono);
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.08em;
+}
+
+.room-hotspots{
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
+
+.hotspot{
+    position: absolute;
+    display: block;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.hotspot:hover,
+.hotspot:focus-visible{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    background: rgba(255, 255, 255, 0.03)
+}
+
+.hotspot-door{
+    left: 51%;
+    top: 39%;
+    width: 3%;
+    height: 10%;
+}
+
+.hotspot-phone{
+    left: 38%;
+    top: 56%;
+    width: 5%;
+    height: 8%;
+}
+
+.hotspot-clock{
+    left: 38%;
+    top: 3%;
+    width: 5%;
+    height: 11%;
+}
+
+.hotspot-peephole{
+    left: 57%;
+    top: 20%;
+    width: 3%;
+    height: 10%;
 }

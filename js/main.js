@@ -210,7 +210,7 @@ function showScenarioRules(scenarioId){
             document.querySelector(".begin-scenario-button");
 
         beginButton.addEventListener("click", () => {
-            HTMLFormControlsCollection.log("Starting ROOM 608");
+            startScenario(scenarioId);
     });
 }
 

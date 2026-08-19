@@ -51,4 +51,42 @@ function showRoom608(){
             </div>
         </section>
      `;
+
+    const hotspots = document.querySelectorAll(".hotspot");
+
+    hotspots.forEach((hotspot) => {
+        hotspot.addEventListener("mouseenter", () => {
+            hotspot.classList.add("active");
+        });
+
+        hotspot.addEventListener("mouseleave", () => {
+            hotspot.classList.remove("active");
+        });
+
+        hotspot.addEventListener("click", () => {
+            const label = hotspot.getAttribute("aria-label");
+            console.log(`Intracted with: ${label}`);
+            showInteractionMessage(label);
+        });
+    });
+}
+
+function showInteractionMessage(label){
+    const existingMessage =
+        document.querySelector(".interaction-message");
+
+    if (existingMessage){
+        existingMessage.remove();
+    }
+
+    const message = document.createElement("div");
+
+    message.className = "interaction-message";
+    message.textContent = label;
+
+    document.querySelector("#app").appendChild(message);
+
+    setTimeout(() => {
+        message.remove();
+    }, 1800);
 }

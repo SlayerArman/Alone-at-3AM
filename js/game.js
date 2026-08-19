@@ -69,6 +69,33 @@ function showRoom608(){
             showInteractionMessage(label);
         });
     });
+
+    startTimer();
+}
+
+function startTimer() {
+    let timeLeft = 60;
+
+    const timerElement = document.querySelector(".timer");
+
+    if (!timerElement){
+        console.warn("Timer element not found");
+        return;
+    }
+
+    timerElement.textContent = timeLeft;
+
+    const timer = setInterval(() => {
+        timeLeft--;
+
+        timerElement.textContent = String(timeLeft).padStart(2, "0");
+
+        if (timeLeft <= 0){
+            clearInterval(timer);
+
+            console.log("ROOM 608 timer ended");
+        }
+    }, 1000);
 }
 
 function showInteractionMessage(label){
